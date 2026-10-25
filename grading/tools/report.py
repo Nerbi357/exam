@@ -64,8 +64,13 @@ for wid, r in res.items():
     if pairs:
         ai_text += ' Совпадения кода выше обычного: ' + '; '.join(
             f'с работой {name_of(o, res[o])} (общих фрагментов: {k}; у большинства пар работ 0–20)' for o, k in pairs) + '.'
-    rows.append((name, total, ai))
-    lines = [f'## {name}', f'**Балл: {fmt(total)}/100**']
+    override = corr.get('final_override', {}).get(wid)
+    shown = override if override is not None else total
+    rows.append((name, shown, ai))
+    lines = [f'## {name}', f'**Балл: {fmt(shown)}/100**']
+    if override is not None:
+        lines.append(f'- Итоговый балл выставлен преподавателем: {fmt(override)}/100 — работа выполнена несамостоятельно '
+                     f'(см. оценку подозрения на ИИ ниже). Баллы по пунктам до этого решения: {fmt(total)}/100.')
     lost = [i for i in sorted(items.values(), key=lambda i: i['n']) if i['pts'] < i['max']]
     if lost:
         no_out = [i for i in lost if i['why'].startswith('В тетради нет выводов ячеек')]
