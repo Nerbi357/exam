@@ -1,0 +1,306 @@
+
+==================== Пункт 1 ====================
+(29710, 38)
+         Date      Away Team       Home Team Remaining Time     Play Type
+0  2026-04-19  Boston Bruins  Buffalo Sabres          20:00  period-start
+1  2026-04-19  Boston Bruins  Buffalo Sabres          20:00       faceoff
+2  2026-04-19  Boston Bruins  Buffalo Sabres          19:47           hit
+3  2026-04-19  Boston Bruins  Buffalo Sabres          19:46           hit
+4  2026-04-19  Boston Bruins  Buffalo Sabres          19:41           hit
+5  2026-04-19  Boston Bruins  Buffalo Sabres          19:27           hit
+6  2026-04-19  Boston Bruins  Buffalo Sabres          19:03           hit
+7  2026-04-19  Boston Bruins  Buffalo Sabres          18:53   missed-shot
+8  2026-04-19  Boston Bruins  Buffalo Sabres          18:48           hit
+9  2026-04-19  Boston Bruins  Buffalo Sabres          18:37   missed-shot
+без index_col=0: (29710, 39) ; iloc[:3,[2,3,4,9,12]] -> ['Game ID', 'Date', 'Away Team', 'Elapsed Time', 'Play Length']
+
+==================== Пункт 2 ====================
+Index(['Date', 'Away Team', 'Home Team', 'Away Score', 'Home Score', 'Outcome'], dtype='str')
+                       Home Team  Away Score  Home Score    Outcome
+Game ID                                                            
+2025030412   Carolina Hurricanes           3           4   Final/OT
+2025030413  Vegas Golden Knights           4           5  Final/2OT
+2025030414  Vegas Golden Knights           5           3      Final
+2025030415   Carolina Hurricanes           2           4      Final
+2025030416  Vegas Golden Knights           3           0      Final
+{'Final': 60, 'Final/OT': 18, 'Final/2OT': 4}
+max == последняя строка: True | подсчёт событий goal совпадает со счётом: True
+
+==================== Пункт 3 ====================
+Buffalo Sabres - Boston Bruins (4 - 3, Final, 2026-04-19)
+Vegas Golden Knights - Carolina Hurricanes (0 - 3, Final, 2026-06-14)
+
+==================== Пункт 4 ====================
+count    82.000
+mean      5.927
+std       2.260
+min       1.000
+25%       5.000
+50%       6.000
+75%       7.000
+max      15.000
+Name: Total Score, dtype: float64
+
+==================== Пункт 5 ====================
+высоты столбцов: {1: 2, 2: 1, 3: 9, 4: 5, 5: 19, 6: 16, 7: 16, 8: 5, 9: 5, 10: 1, 11: 2, 15: 1}
+
+==================== Пункт 6 ====================
+['Montréal Canadiens - Tampa Bay Lightning (0 - 1, Final/OT, 2026-05-01)', 'Philadelphia Flyers - Pittsburgh Penguins (1 - 0, Final/OT, 2026-04-29)']
+['Colorado Avalanche - Minnesota Wild (9 - 6, Final, 2026-05-03)']
+
+==================== Пункт 7 ====================
+                                                    Game Info  Player Count
+Game ID                                                                    
+2025030216  Montréal Canadiens - Buffalo Sabres (3 - 8, Fi...            40
+2025030112  Buffalo Sabres - Boston Bruins (2 - 4, Final, ...            39
+2025030215  Buffalo Sabres - Montréal Canadiens (3 - 6, Fi...            39
+2025030413  Vegas Golden Knights - Carolina Hurricanes (5 ...            39
+2025030235  Colorado Avalanche - Minnesota Wild (4 - 3, Fi...            39
+если NaN считать игроком: max = 41 игра 2025030216
+ошибка «сумма nunique по столбцам»: max = 141 игра 2025030233
+
+==================== Пункт 8 ====================
+          Game ID     Play Type  Shot Length
+7      2025030111   missed-shot       12.207
+9      2025030111   missed-shot       12.000
+12     2025030111   missed-shot       29.411
+13     2025030111  shot-on-goal       62.169
+19     2025030111   missed-shot       52.924
+...           ...           ...          ...
+29695  2025030416   missed-shot       54.083
+29696  2025030416   missed-shot        5.099
+29704  2025030416          goal       46.239
+29706  2025030416   missed-shot       60.926
+29707  2025030416  shot-on-goal       49.041
+
+[7266 rows x 3 columns]
+count    7266.000
+mean       35.409
+std        27.471
+min         0.000
+25%        15.556
+50%        31.898
+75%        47.877
+max       188.215
+Name: Shot Length, dtype: float64
+вариант «ворота по знаку X»: отличаются 212 бросков, max = 96.385
+вариант «до центра ворот»: среднее 36.793 vs 35.409
+вариант «перепутаны ворота»: среднее 148.936
+
+==================== Пункт 9 ====================
+{'on goal': 4623, 'missed': 2643}
+броски дальше 89 футов (из своей половины): {'shot-on-goal': 202, 'missed-shot': 30, 'goal': 19}
+  по зонам: {'Defensive': {'goal': 15, 'missed-shot': 21, 'shot-on-goal': 128}, 'Neutral': {'goal': 4, 'missed-shot': 9, 'shot-on-goal': 74}}
+  по периодам (в створ): {1: 70, 2: 63, 3: 58, 4: 9, 5: 2}
+медианы: {'missed': 32.249, 'on goal': 31.828}
+доля бросков дальше 89 футов: {'missed': 0.0114, 'on goal': 0.0478}
+
+==================== Пункт 10 ====================
+Game ID     Team Making the Play
+2025030111  Boston Bruins           0.625
+            Buffalo Sabres          0.679
+2025030112  Boston Bruins           0.614
+            Buffalo Sabres          0.636
+2025030113  Boston Bruins           0.694
+                                    ...  
+2025030414  Vegas Golden Knights    0.583
+2025030415  Carolina Hurricanes     0.558
+            Vegas Golden Knights    0.510
+2025030416  Carolina Hurricanes     0.639
+            Vegas Golden Knights    0.595
+Name: Share of Shots on Goal, Length: 164, dtype: float64
+count    164.000
+mean       0.639
+std        0.085
+min        0.353
+25%        0.583
+50%        0.639
+75%        0.689
+max        0.860
+Name: Share of Shots on Goal, dtype: float64
+доля < 0.5 в 6 случаях из 164
+вариант голы не в числителе: sog/(sog+goal+miss) : [0.531, 0.607, 0.523]
+вариант без голов вообще: sog/(sog+miss) : [0.586, 0.654, 0.575]
+вариант с blocked в знаменателе : [0.444, 0.543, 0.466]
+
+==================== Пункт 11 ====================
+Team Making the Play
+Edmonton Oilers        0.706
+Philadelphia Flyers    0.684
+Dallas Stars           0.670
+Minnesota Wild         0.656
+Colorado Avalanche     0.653
+Name: Share of Shots on Goal, dtype: float64
+Team Making the Play
+Pittsburgh Penguins    0.554
+Utah Mammoth           0.599
+Carolina Hurricanes    0.615
+Tampa Bay Lightning    0.626
+Buffalo Sabres         0.626
+Name: Share of Shots on Goal, dtype: float64
+вариант Σ/Σ: top {'Edmonton Oilers': 0.7, 'Philadelphia Flyers': 0.681, 'Dallas Stars': 0.669, 'Minnesota Wild': 0.657, 'Colorado Avalanche': 0.649} | bottom {'Pittsburgh Penguins': 0.554, 'Utah Mammoth': 0.609, 'Carolina Hurricanes': 0.613, 'Ottawa Senators': 0.618, 'Tampa Bay Lightning': 0.624}
+вариант голы не в числителе: sog/(sog+goal+miss) : top ['Philadelphia Flyers', 'Edmonton Oilers', 'Dallas Stars', 'Los Angeles Kings', 'Ottawa Senators'] | bottom ['Pittsburgh Penguins', 'Utah Mammoth', 'Carolina Hurricanes', 'Vegas Golden Knights', 'Buffalo Sabres']
+вариант без голов вообще: sog/(sog+miss) : top ['Edmonton Oilers', 'Philadelphia Flyers', 'Dallas Stars', 'Los Angeles Kings', 'Colorado Avalanche'] | bottom ['Pittsburgh Penguins', 'Utah Mammoth', 'Carolina Hurricanes', 'Buffalo Sabres', 'Vegas Golden Knights']
+вариант с blocked в знаменателе : top ['Edmonton Oilers', 'Philadelphia Flyers', 'Minnesota Wild', 'Anaheim Ducks', 'Dallas Stars'] | bottom ['Pittsburgh Penguins', 'Los Angeles Kings', 'Utah Mammoth', 'Montréal Canadiens', 'Tampa Bay Lightning']
+
+==================== Пункт 12 ====================
+игр у команд совпадает с числом строк в группировке: True
+                        Shot   Goal
+Team Making the Play               
+Anaheim Ducks         31.667  3.250
+Boston Bruins         25.167  2.000
+Buffalo Sabres        30.462  3.308
+Carolina Hurricanes   31.632  3.474
+Colorado Avalanche    32.154  3.385
+Dallas Stars          31.000  2.500
+Edmonton Oilers       28.333  3.500
+Los Angeles Kings     25.250  1.250
+Minnesota Wild        28.727  3.727
+Montréal Canadiens    23.263  2.842
+Ottawa Senators       27.500  1.250
+Philadelphia Flyers   24.600  2.100
+Pittsburgh Penguins   26.500  1.833
+Tampa Bay Lightning   28.000  2.143
+Utah Mammoth          27.833  3.000
+Vegas Golden Knights  26.545  3.455
+вариант Shot без голов: {'Anaheim Ducks': 28.417, 'Boston Bruins': 23.167, 'Buffalo Sabres': 27.154, 'Carolina Hurricanes': 28.158}
+вариант «голы только по матчам, где команда забивала»: завышены {'Montréal Canadiens': 0.334, 'Ottawa Senators': 0.417, 'Philadelphia Flyers': 0.233, 'Pittsburgh Penguins': 0.917, 'Vegas Golden Knights': 0.165}
+
+==================== Пункт 13 ====================
+r = 0.521 | p = 0.039 | наклон = 0.156 | точек: 16
+
+==================== Пункт 14 ====================
+Carolina Hurricanes - Ottawa Senators (3 - 2, Final/2OT, 2026-04-20) | бросков: 208
+вариант без голов : 2025030132 203
+вариант без blocked : 2025030132 154
+вариант только sog+goal : 2025030132 88
+
+==================== Пункт 15 ====================
+Defending Side по периодам: {1: 'right', 2: 'left', 3: 'right', 4: 'left', 5: 'right'}
+зеркалирование по нечётным периодам == по Defending Side: True
+бросков: 208 {'shot-on-goal': 83, 'missed-shot': 66, 'blocked-shot': 54, 'goal': 5} {'Carolina Hurricanes': 109, 'Ottawa Senators': 99}
+доля бросков хозяев справа: 0.982 | гостей слева: 0.99
+
+==================== Пункт 16 ====================
+Player in the Event #1
+Brett Howden        14
+Pavel Dorofeyev     12
+Logan Stankoven     11
+Mitch Marner        10
+Nikolaj Ehlers       8
+Jordan Staal         8
+Alex Newhook         7
+Taylor Hall          7
+Jackson Blake        7
+Nathan MacKinnon     7
+Matt Boldy           7
+Mark Stone           7
+-> значение на 10-м месте: 7; игроков с не меньшим значением: 12
+
+==================== Пункт 17 ====================
+Jack Eichel        20
+Mitch Marner       19
+Lane Hutson        13
+Jackson Blake      13
+Nick Suzuki        12
+Taylor Hall        12
+Martin Necas       12
+Shea Theodore      12
+Kirill Kaprizov    11
+Quinn Hughes       11
+-> значение на 10-м месте: 11; игроков с не меньшим значением: 10
+вариант «только #2»: {'Mitch Marner': 14, 'Jack Eichel': 11, 'Martin Necas': 9, 'Lane Hutson': 8, 'Taylor Hall': 8, 'Nick Suzuki': 7, 'Nathan MacKinnon': 7, 'Rasmus Dahlin': 6, 'Nikolaj Ehlers': 6, "K'Andre Miller": 6}
+
+==================== Пункт 18 ====================
+Player in the Event #1
+Mitch Marner       29
+Jack Eichel        22
+Jackson Blake      20
+Taylor Hall        19
+Brett Howden       18
+Shea Theodore      18
+Nikolaj Ehlers     18
+Nick Suzuki        16
+Pavel Dorofeyev    16
+Lane Hutson        16
+Logan Stankoven    16
+-> значение на 10-м месте: 16; игроков с не меньшим значением: 11
+вариант с потерей игроков без голов/передач (сложение без fill_value): top10 совпадает: True
+
+==================== Пункт 19 ====================
+в створ + голы: среднее за игру (знаменатель — игры на льду):
+                        Total  Games  Per Game
+Player in the Event #1                        
+Jason Robertson            30      6     5.000
+Dylan Guenther             27      6     4.500
+Nikita Kucherov            31      7     4.429
+Matt Boldy                 48     11     4.364
+Quinton Byfield            17      4     4.250
+Darren Raddysh             28      7     4.000
+Joel Eriksson Ek           24      6     4.000
+Alex Laferriere            15      4     3.750
+David Pastrnak             22      6     3.667
+Nathan MacKinnon           47     13     3.615
+Rasmus Dahlin              46     13     3.538
+Alex Tuch                  46     13     3.538
+вариант «только игры с событием»: {'Jason Robertson': 5.0, 'Dylan Guenther': 4.5, 'Nikita Kucherov': 4.429, 'David Pastrnak': 4.4, 'Matt Boldy': 4.364, 'Quinton Byfield': 4.25, 'Clayton Keller': 4.2, 'Leo Carlsson': 4.1, 'Darren Raddysh': 4.0, 'Joel Eriksson Ek': 4.0}
+только shot-on-goal: среднее за игру (знаменатель — игры на льду):
+                        Total  Games  Per Game
+Player in the Event #1                        
+Nikita Kucherov            30      7     4.286
+Quinton Byfield            17      4     4.250
+Jason Robertson            25      6     4.167
+Dylan Guenther             24      6     4.000
+Darren Raddysh             27      7     3.857
+Alex Laferriere            15      4     3.750
+Matt Boldy                 41     11     3.727
+Joel Eriksson Ek           21      6     3.500
+Clayton Keller             20      6     3.333
+Alex Tuch                  42     13     3.231
+Rasmus Dahlin              42     13     3.231
+Connor McDavid             19      6     3.167
+вариант «только игры с событием»: {'Nikita Kucherov': 4.286, 'Quinton Byfield': 4.25, 'Jason Robertson': 4.167, 'Dylan Guenther': 4.0, 'Clayton Keller': 4.0, 'Darren Raddysh': 3.857, 'David Pastrnak': 3.8, 'Alex Laferriere': 3.75, 'Matt Boldy': 3.727, 'Leo Carlsson': 3.7}
+
+==================== Пункт 20 ====================
+hit: среднее за игру (знаменатель — игры на льду):
+                        Total  Games  Per Game
+Player in the Event #1                        
+Lawson Crouse              38      6     6.333
+Alexander Petrovic          6      1     6.000
+Alex Turcotte               6      1     6.000
+Yakov Trenin               51      9     5.667
+Dylan Cozens               22      4     5.500
+Vasily Podkolzin           32      6     5.333
+Ivan Barbashev            110     22     5.000
+Carl Grundstrom            15      3     5.000
+Marcus Foligno             55     11     5.000
+Owen Tippett               29      6     4.833
+William Carrier            91     19     4.789
+Colton Dach                23      5     4.600
+вариант «только игры с событием»: {'Lawson Crouse': 6.333, 'Alexander Petrovic': 6.0, 'Alex Turcotte': 6.0, 'Yakov Trenin': 5.667, 'Dylan Cozens': 5.5, 'Dennis Gilbert': 5.5, 'Vasily Podkolzin': 5.333, 'MacKenzie Weegar': 5.2, 'William Carrier': 5.056, 'Carl Grundstrom': 5.0}
+вариант п.19 «игры команды»: {'Jason Robertson': 5.0, 'Dylan Guenther': 4.5, 'Nikita Kucherov': 4.429, 'Matt Boldy': 4.364, 'Quinton Byfield': 4.25, 'Darren Raddysh': 4.0, 'Alex Laferriere': 3.75, 'David Pastrnak': 3.667, 'Nathan MacKinnon': 3.615, 'Rasmus Dahlin': 3.538}
+вариант п.20 «игры команды»: {'Lawson Crouse': 6.333, 'Dylan Cozens': 5.5, 'Vasily Podkolzin': 5.333, 'Ivan Barbashev': 5.0, 'Marcus Foligno': 5.0, 'William Carrier': 4.789, 'Yakov Trenin': 4.636, 'Cole Smith': 4.545, 'Jordan Staal': 4.526, 'Alex Laferriere': 4.5}
+
+==================== Пункт 21 ====================
+голов: 486 | в овертайме (пустой состав): 22 | в пустые ворота (вратаря не было до гола): 34 | в строке гола другой вратарь, чем до гола (замена сразу после гола): 5
+ВЕРНО: ['Alex Lyon', 'Andrei Vasilevskiy', 'Brandon Bussi', 'Dan Vladar', 'Frederik Andersen', 'Joonas Korpisalo', 'Scott Wedgewood', 'Ukko-Pekka Luukkonen']
+   Game ID                Team               Goalie                                                                    Info
+2025030112      Buffalo Sabres            Alex Lyon               Buffalo Sabres - Boston Bruins (2 - 4, Final, 2026-04-21)
+2025030114       Boston Bruins     Joonas Korpisalo               Boston Bruins - Buffalo Sabres (1 - 6, Final, 2026-04-26)
+2025030126 Tampa Bay Lightning   Andrei Vasilevskiy  Montréal Canadiens - Tampa Bay Lightning (0 - 1, Final/OT, 2026-05-01)
+2025030131 Carolina Hurricanes    Frederik Andersen        Carolina Hurricanes - Ottawa Senators (2 - 0, Final, 2026-04-18)
+2025030142 Philadelphia Flyers           Dan Vladar    Pittsburgh Penguins - Philadelphia Flyers (0 - 3, Final, 2026-04-20)
+2025030146 Philadelphia Flyers           Dan Vladar Philadelphia Flyers - Pittsburgh Penguins (1 - 0, Final/OT, 2026-04-29)
+2025030216      Buffalo Sabres Ukko-Pekka Luukkonen          Montréal Canadiens - Buffalo Sabres (3 - 8, Final, 2026-05-16)
+2025030221 Carolina Hurricanes    Frederik Andersen    Carolina Hurricanes - Philadelphia Flyers (3 - 0, Final, 2026-05-02)
+2025030235  Colorado Avalanche      Scott Wedgewood       Colorado Avalanche - Minnesota Wild (4 - 3, Final/OT, 2026-05-13)
+2025030314 Carolina Hurricanes    Frederik Andersen     Montréal Canadiens - Carolina Hurricanes (0 - 4, Final, 2026-05-27)
+2025030416 Carolina Hurricanes        Brandon Bussi   Vegas Golden Knights - Carolina Hurricanes (0 - 3, Final, 2026-06-14)
+вариант «вратарь из строки гола»: ['Andrei Vasilevskiy', 'Arturs Silovs', 'Brandon Bussi', 'Dan Vladar', 'Frederik Andersen', 'Jakub Dobes', 'Joonas Korpisalo', 'Scott Wedgewood']
+вариант «строка гола + овертаймы исправлены»: ['Andrei Vasilevskiy', 'Brandon Bussi', 'Dan Vladar', 'Frederik Andersen', 'Joonas Korpisalo', 'Scott Wedgewood']
+вариант «сухие матчи команды»: ['Andrei Vasilevskiy', 'Brandon Bussi', 'Dan Vladar', 'Frederik Andersen']
+вариант «голы в пустые ворота тоже на вратаря»: ['Alex Lyon', 'Andrei Vasilevskiy', 'Brandon Bussi', 'Dan Vladar', 'Frederik Andersen', 'Joonas Korpisalo', 'Scott Wedgewood', 'Ukko-Pekka Luukkonen']
+
+==================== Пункт 22 ====================
+команда, забившая первой, выиграла в 56 из 82 матчей: 0.683
+хозяева выиграли 39 из 82 : 0.476
