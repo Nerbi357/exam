@@ -52,6 +52,8 @@ for wid, r in res.items():
     total = sum(i['pts'] for i in items.values())
     ai = r['ai']['score']
     ai_text = clean_ai(r['ai']['why'])
+    if wid in corr.get('ai_text', {}):
+        ai_text = corr['ai_text'][wid]
     if wid in corr['ai']:
         ai, extra = corr['ai'][wid]
         if extra:
