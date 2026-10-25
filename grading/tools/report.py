@@ -77,6 +77,8 @@ for wid, r in res.items():
             lines.append(f"- П.{i['n']} ({fmt(i['pts'])}/{fmt(i['max'])}): {i['why'].strip()}")
     else:
         lines.append('Снятий нет.')
+    for rem in corr.get('remarks', {}).get(wid, []):
+        lines.append(f'- Замечание без снятия баллов. {rem}')
     lines.append('')
     lines.append(f'Подозрение на ИИ: {ai}/100. {ai_text}')
     blocks.append((name, '\n'.join(lines)))
